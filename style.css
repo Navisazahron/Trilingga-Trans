@@ -1586,7 +1586,7 @@ span {
 
     .header {
         padding: 0.5rem 0; /* Mengurangi padding header */
-        top:0; /* Menyesuaikan posisi jika diperlukan */
+        top:0.1rem; /* Menyesuaikan posisi jika diperlukan */
         
     }
     
@@ -1608,7 +1608,7 @@ span {
         margin-left: 1rem; /* Jarak kiri dari latar belakang menu */
         position: absolute; /* Pastikan tombol menu berada di posisi absolut */
         top: 0; /* Tempatkan tombol menu di atas */
-        left: -15rem; /* Tempatkan tombol menu di kiri */
+        left: -5rem; /* Tempatkan tombol menu di kiri */
         z-index: 301; /* Pastikan tombol menu berada di atas latar belakang menu */
     }
 
