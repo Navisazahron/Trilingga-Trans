@@ -1586,7 +1586,7 @@ span {
 
     .header {
         padding: 0.5rem 0; /* Mengurangi padding header */
-        top: 2rem; /* Menyesuaikan posisi jika diperlukan */
+        top:0; /* Menyesuaikan posisi jika diperlukan */
         
     }
     
