@@ -1,0 +1,2406 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: "Playfair Display", serif;
+}
+
+html {
+    font-size: 65.5%;
+}
+
+:root {
+    --main-color: #0f7ea0;
+    --text-color: #141622;
+}
+/* Styling untuk top-header */
+/* Styling untuk top-header */
+/* Styling untuk top-header */
+.top-header {
+    width: 100%;
+    background: var(--main-color);
+    position: fixed; /* Posisi tetap */
+    top: 0; /* Tempatkan di bagian atas */
+    left: 0;
+    z-index: 300; /* Lebih tinggi dari header */
+    padding: 0 1rem; /* Memberi padding jika diperlukan */
+}
+
+/* Styling untuk out-box dalam top-header */
+.top-header .out-box {
+    width: 100%;
+    background: var(--main-color);
+    position: relative; /* Relative agar posisi inside-box tetap relatif terhadap out-box */
+}
+
+/* Styling untuk inside-box dalam top-header */
+.top-header .inside-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #141622;
+    padding: 1rem 0;
+    clip-path: polygon(8% 0%, 92% 0%, 96% 100%, 5% 100%);
+}
+
+/* Styling untuk header */
+.header {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(190, 190, 190, 0.5), 0 0 10px rgba(190, 190, 190, 0.5);
+    z-index: 250; /* Z-index harus lebih rendah dari top-header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed; /* Fixed position agar tetap di atas saat scroll */
+    top: 3rem; /* Tempatkan di bawah top-header */
+    left: 0;
+    padding: 1rem 0;
+}
+
+/* Navbar styling */
+
+
+/* Padding pada body untuk menghindari tumpang tindih konten */
+body {
+    padding-top: 8rem; /* Menyesuaikan padding dengan tinggi top-header dan header */
+}
+
+
+
+
+.out-box .inside-box .col-1,
+.out-box .inside-box .col-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.out-box .inside-box .col-1 {
+    gap: 1rem;
+    margin-left: 13rem;
+}
+
+.out-box .inside-box .col-1 span {
+    font-size: 1.5rem;
+}
+
+.out-box .inside-box .col-1 span i {
+    color: var(--main-color);
+    padding-right: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.out-box .inside-box .col-2 {
+    gap: 1rem;
+    margin-right: 13rem;
+}
+
+.out-box .inside-box .col-2 a,
+.out-box .inside-box .col-2 span,
+.out-box .inside-box .col-2 .social i {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: 0.4s;
+}
+
+.out-box .inside-box .col-2 .social {
+    display: flex;
+    gap: 0.9rem;
+}
+
+.out-box .inside-box .col-2 a i {
+    padding-right: 0.5rem;
+}
+
+.out-box .inside-box .col-2 .social i:hover,
+.out-box .inside-box .col-2 a:hover {
+    color: var(--main-color);
+}
+
+/* Media query */
+@media(max-width:1150px) {
+    .out-box .inside-box .col-1 {
+        margin-left: 8rem;
+    }
+
+    .out-box .inside-box .col-2 {
+        margin-right: 8rem;
+    }
+}
+
+
+
+
+/* Styling untuk header */
+
+/* Navbar styling */
+.logo {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 2rem; /* Ukuran font untuk logo */
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 260; /* Memastikan navbar di atas elemen lainnya */
+}
+
+/* Memindahkan menu button ke sebelah kiri */
+.menu-button {
+    display: none; /* Menampilkan tombol menu hanya di perangkat mobile */
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+}
+
+.menu-button i {
+    color: var(--text-color);
+    font-size: 2.5rem;
+}
+
+/* Menyembunyikan navbar ul pada perangkat mobile */
+.navbar ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar ul li {
+    position: relative;
+}
+
+.navbar ul li a {
+    padding: 1rem 0;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: var(--main-color);
+}
+
+.navbar ul li a i {
+    padding-left: 0.5rem;
+}
+
+.navbar ul li ul.drop-down {
+    position: absolute;
+    top: 150%;
+    left: 0;
+    background: #fff;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 1rem 0;
+    text-align: left;
+    display: none;
+    z-index: 100;
+}
+
+.navbar ul li ul.drop-down li {
+    width: 100%;
+}
+
+.navbar ul li ul.drop-down li a {
+    padding: 0.9rem 2rem;
+    display: block;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.navbar ul li ul.drop-down li a:hover {
+    background: var(--main-color);
+    color: #fff;
+    padding-left: 2.5rem;
+    transition: 0.3s;
+}
+
+.navbar ul li:hover ul.drop-down {
+    display: block;
+}
+/* Aturan CSS utama, berlaku untuk semua ukuran layar */
+.navbar.active .navLink {
+    display: flex;
+    background: white;
+}
+
+.navbar.active .menu-button {
+    color: var(--main-color); /* Atur warna tombol saat aktif, jika diperlukan */
+}
+
+/* Efek transisi untuk dropdown dan navLink */
+.navLink {
+    transition: background 0.3s ease;
+}
+
+.swiper {
+    width: 100%;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    position: relative;
+    margin-top: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                url("../img/gambar2.jpg") no-repeat center center/cover;
+}
+
+.swiper .swiper-wrapper {
+    padding: 0;
+}
+
+/* Mengatur posisi gambar dan teks di dalam slide */
+.swiper .swiper-wrapper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8rem;
+    padding: 100px;
+    position: relative;
+}
+
+/* Styling untuk gambar mobil */
+.swiper .swiper-wrapper .swiper-slide .col-2 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-2 img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Layer transparan di atas gambar latar belakang */
+.swiper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 52, 86, 0.5);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Menempatkan konten di atas layer transparan */
+.swiper .swiper-wrapper .swiper-slide * {
+    position: relative;
+    z-index: 2;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-1 {
+    width: 50%;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-1 h4 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    margin-top: 13rem;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-1 h1 {
+    font-size: 4rem;
+    color: var(--text-color);
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 1.2;
+    align-items: left;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-1 h1 span {
+    color: var(--main-color);
+    align-items: left;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-1 .button {
+    margin-top: 3rem;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-1 .button button {
+    background: var(--main-color);
+    padding: 1.2rem 2rem;
+    border-radius: 3rem;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-1 .button button i {
+    padding-left: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-1 .button button:hover {
+    background: #141622;
+    padding-left: 2.5rem;
+    padding-right: 3.5rem;
+}
+
+.swiper .swiper-wrapper .swiper-slide .col-2 img {
+    width: 100%;
+}
+
+/* Swiper buttons */
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+    color: #fff;
+    font-size: 3rem;
+    transition: 0.3s;
+}
+
+.swiper .swiper-button-next:hover,
+.swiper .swiper-button-prev:hover {
+    color: var(--main-color);
+}
+
+.swiper .swiper-button-next:after,
+.swiper .swiper-button-prev:after {
+    font-size: 2rem;
+}
+/* Media Queries untuk perangkat dengan lebar layar maksimal 768px */
+
+
+
+/* Styling untuk text di footer */
+.footer p {
+    color: #141622;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    font-weight: 400;
+}
+
+/* Styling untuk link di footer */
+
+
+.market {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    flex-direction: column; /* Tambahkan ini untuk memastikan konten tersusun secara vertikal pada layar kecil */
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    flex-direction: column; /* Mengubah layout ke kolom pada layar kecil */
+    text-align: center; /* Pusatkan teks pada layar kecil */
+}
+
+.col-3, .col-4 {
+    flex: 1;
+    padding: 10px; /* Tambahkan sedikit padding untuk membuat tampilan lebih rapi */
+}
+
+.col-4 {
+    padding-left: 0; /* Hilangkan padding kiri pada layar kecil */
+}
+
+.car-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.col-4 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.col-4 p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.selengkapnya-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.selengkapnya-btn:hover {
+    background-color: #0056b3;
+}
+
+.market {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rental-pricing {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.rental-pricing h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.rental-pricing p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    margin: 0 auto; /* Tambahkan ini untuk memastikan card terpusat di layar kecil */
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.card p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.card ul li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.order-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.order-btn:hover {
+    background-color: #0056b3;
+}
+/* Untuk perangkat dengan lebar layar maksimal 768px */
+
+/* Footer Styling */
+.footer {
+    background-color: #333;
+    background-size: cover;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo h5 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--main-color);
+}
+
+.footer-contact {
+    margin-bottom: 20px;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.footer-social {
+    margin-bottom: 20px;
+}
+
+.footer-social .social-icon {
+    margin: 0 10px;
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.footer-social .social-icon:hover {
+    color: var(--main-color);
+}
+
+.footer-bottom {
+    font-size: 14px;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Garis tipis di atas footer bottom */
+    padding-top: 10px;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header Styles */
+
+.header .logo h5 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Tambahkan ini untuk membuat navbar fleksibel */
+}
+
+.navLink {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navLink li {
+    position: relative;
+}
+
+.navLink a {
+    color: #fff;
+    padding: 10px;
+}
+
+.navLink .drop-down {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navLink li:hover .drop-down {
+    display: block;
+}
+
+.navLink .drop-down li {
+    padding: 10px;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+.intro, .rental-terms, .cancellation-policy, .faq, .rental-price {
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logo h5 {
+    margin: 0;
+}
+
+.footer-links ul, .footer-social a {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links ul li, .footer-social a {
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+/* Tambahkan ke style.css */
+/* Custom CSS for Intro Section */
+/* Custom CSS for Intro Section */
+.intro {
+    position: relative;
+    text-align: left; /* Align text to the left */
+    padding: 50px 20px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.intro-background {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.intro-image {
+    width: 150px; /* Adjust the size of the image */
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
+    position: absolute;
+    left: 20px; /* Position image to the left */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.intro-content {
+    max-width: calc(100% - 200px); /* Adjust content width to avoid overlap */
+    margin-left: 200px; /* Adjust margin to accommodate the image */
+}
+
+.intro h1, .intro p {
+    margin: 0;
+    padding: 0;
+}
+
+.intro h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 1.2em;
+}
+
+/* Custom CSS for Car Gallery Section */
+/* Custom CSS for Car Gallery Section */
+.car-gallery {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.car-gallery h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 400px; /* Adjust height if needed */
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    position: relative;
+}
+
+.slide-background {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.slide-image {
+    width: 150px; /* Adjust size of the image */
+    height: auto;
+    position: absolute;
+    left: 20px; /* Position image to the left */
+    bottom: 20px; /* Adjust if needed */
+    border-radius: 8px;
+}
+
+.swiper-slide img {
+    max-width: 90%;
+    max-height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    background: #333;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #333;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #007bff;
+}
+/* Responsive Design */
+
+/*/* Styling khusus untuk slider dengan kelas .myavanza */
+.swiper.myavanza {
+    width: 100%;
+    height: 100vh; /* Pastikan slider memakan seluruh tinggi viewport */
+    padding: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), /* Gradient overlay */
+                url("../img/gambar5.jpg") no-repeat center top; /* Gambar latar belakang */
+    background-size: cover; /* Memastikan gambar menutupi seluruh area */
+    background-blend-mode: multiply;
+    position: relative;
+    margin-top: 0;
+}
+
+/* Mengatur posisi dan styling untuk slide */
+.swiper.myavanza .swiper-wrapper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Mengatur teks ke kiri */
+    padding: 100px;
+    box-sizing: border-box; /* Memastikan padding tidak menyebabkan overflow */
+    height: 100%; /* Mengisi tinggi slider */
+}
+
+/* Styling untuk kolom teks */
+.swiper.myavanza .swiper-slide .col-1 {
+    max-width: 50%; /* Membatasi lebar konten agar tidak terlalu besar */
+    color: #fff; /* Warna teks putih untuk kontras dengan background gelap */
+}
+
+/* Styling untuk judul */
+.swiper.myavanza .swiper-slide .col-1 h4 {
+    font-size: 3rem; /* Ukuran font untuk judul lebih kecil */
+    font-weight: 300; /* Mengurangi ketebalan font */
+    margin-bottom: 1.5rem; /* Jarak antara h4 dan p */
+}
+
+/* Styling untuk paragraf */
+.swiper.myavanza .swiper-slide .col-1 p {
+    font-size: 2rem; /* Ukuran font untuk paragraf lebih kecil */
+    line-height: 1.6; /* Jarak antar baris untuk keterbacaan */
+}
+
+h1 {
+    font-size: 3rem; /* Menyesuaikan ukuran font */
+    line-height: 1.2;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem; /* Jarak antara h4 dan h1 */
+}
+
+span {
+    color: #ffffff; /* Warna untuk teks 'impian' */
+}
+.container {
+    display: flex; /* Menyusun elemen di dalam kontainer secara horizontal */
+    gap: 20px; /* Jarak antara .image-box dan .paket-wisata-box */
+    flex-wrap: wrap; /* Agar elemen dapat membungkus ke baris berikutnya jika diperlukan */
+}
+
+/* Kontainer atas untuk gambar dan info */
+.top-container {
+    display: flex;
+    flex-direction: row; /* Mengatur arah fleksibel menjadi horizontal */
+    align-items: flex-start;
+    justify-content: space-between; /* Memastikan ada jarak antara gambar dan info-box */
+    margin-bottom: 20px; /* Jarak bawah antara top-container dan kotak ketentuan */
+    margin-top: 5rem;
+    width: 100%;
+}
+
+/* Kotak gambar */
+.image1-box {
+    flex: 1;
+    max-width: 500px;
+    margin-bottom: 20px; /* Jarak antara gambar dan info box */
+}
+
+.image1-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-box {
+    background-color: #f9f9f9; /* Warna latar belakang untuk box */
+    padding: 20px; /* Ruang di dalam box */
+    border: 2px solid #ddd; /* Garis tepi dengan warna abu-abu */
+    border-radius: 10px; /* Membuat sudut box menjadi melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan pada box */
+    max-width: 50%; /* Lebar maksimal untuk box */
+    width: 50px; /* Lebar tetap untuk box paket wisata, bisa disesuaikan */
+    flex: 1;
+}
+
+
+.info-box h4 {
+    font-size: 1.8rem; /* Ukuran font untuk judul */
+    margin-bottom: 10px; /* Jarak bawah untuk judul */
+    color: #333; /* Warna teks untuk judul */
+}
+
+.info-box p {
+    font-size: 1.2rem; /* Ukuran font untuk paragraf */
+    color: #555; /* Warna teks untuk paragraf */
+    line-height: 1.6; /* Line-height untuk spasi antar baris */
+    margin-bottom: 10px; /* Jarak bawah antar paragraf */
+}
+/* Gambar di sebelah kiri */
+
+
+
+
+.notification-icon {
+    font-size: 24px;
+    color: var(--main-color);
+    margin-bottom: 10px;
+    display: flex; /* Mengatur elemen menjadi flexbox */
+    justify-content: center; /* Menempatkan elemen di tengah secara horizontal */
+    align-items: center;
+}
+
+.info-box h3, .info-box h4, .info-box p {
+    text-align: center;
+    font-size: 15px;
+}
+
+.whatsapp-button {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+    display: flex; /* Mengatur elemen menjadi flexbox */
+    justify-content: center; /* Menempatkan elemen di tengah secara horizontal */
+    align-items: center;
+}
+
+.whatsapp-button:hover {
+    background-color: #007bff;
+}
+
+
+
+.included-box {
+    width: 100%;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px; /* Jarak atas antara info-box dan included-box */
+    text-align: left; /* Mengatur teks rata kiri */
+}
+
+.included-box p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.included-box ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.included-box ul li {
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #333;
+}
+.included-box ul li i {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+    font-size: 18px; /* Ukuran ikon */
+}
+.terms-box {
+    width: 100rem; /* Lebar kotak ketentuan diatur agar sesuai dengan container */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Jarak atas kotak ketentuan, dan auto untuk center */
+    align-items: center;
+}
+
+.terms-box h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.terms-box ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.terms-box ul li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+}
+.info-container {
+    display: flex; /* Menggunakan flexbox untuk menampilkan kotak berdampingan */
+    gap: 15rem; /* Jarak antara kotak Pembatalan Sewa dan Peringatan Penting */
+    margin-top: 2rem; /* Jarak atas dari elemen sebelumnya */
+    justify-content: space-between; /* Mengatur jarak di antara kotak */
+    margin-bottom: 3rem;
+    margin-left:15rem; /* Menggeser container ke kanan */
+    margin-right: auto; /* Opsi tambahan jika perlu lebih banyak ruang kanan */
+}
+
+
+.cancellation-container,
+.warning-container {
+    background-color: #f9f9f9; /* Warna latar belakang */
+    border: 1px solid #ddd; /* Garis batas */
+    border-radius: 8px; /* Sudut membulat */
+    padding: 1.5rem; /* Jarak di dalam kotak */
+    flex: 1; /* Kotak akan memiliki lebar yang sama */
+    max-width: 450px; /* Lebar maksimal untuk kotak */
+    box-sizing: border-box; /* Memastikan padding tidak menambah lebar kotak */
+}
+
+.cancellation-container h2,
+.warning-container h2 {
+    color: #000000; /* Warna teks judul */
+    font-size: 2.5rem; /* Ukuran font judul */
+    margin-bottom: 1rem; /* Jarak bawah judul */
+}
+
+.cancellation-container p,
+.warning-container p {
+    color: #141414; /* Warna teks */
+    font-size: 15px; /* Ukuran font teks */
+    line-height: 1.6; /* Jarak antar baris */
+    margin-bottom: 0.5rem; /* Jarak bawah paragraf */
+}
+.warning-container{
+    background-color: #f72121;
+}
+
+
+/* CSS for the custom slider */
+/* CSS for the custom slider */
+.custom-slider {
+    width: 100%;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.3); /* Kurangi kegelapan background */
+    position: relative;
+    margin-top: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
+                url("./img/ranu.jpg") no-repeat center center/cover;
+    height: 850px; /* Atur tinggi slider */
+}
+
+.custom-swiper {
+    width: 100%;
+    height: 100%; /* Sesuaikan tinggi swiper dengan container */
+}
+
+.slide-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box; /* Memastikan padding dan border tidak mempengaruhi tinggi */
+}
+
+.slide-content h4 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.slide-content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+
+.wrapper {
+    display: flex;
+    align-items: flex-start; /* Menyelaraskan item ke bagian atas */
+    gap: 10rem; /* Jarak antara gambar dan box paket wisata */
+    margin-top: 20px; /* Margin dari atas */
+}
+
+.image-box {
+    /* Mengatur lebar dan tinggi kotak gambar jika diperlukan */
+    width: 100%; /* Lebar kontainer gambar, dapat disesuaikan sesuai kebutuhan */
+    max-width: 800px; /* Maksimal lebar kotak gambar */
+    margin: 0 auto; /* Menyusun gambar ke tengah kontainer */
+    padding: 10px; /* Padding di sekitar gambar jika diperlukan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opsional: menambahkan bayangan pada gambar */
+    margin-right: -9%;
+}
+
+.image-box img {
+    width: 100%; /* Lebar gambar mengikuti lebar kontainer */
+    height: auto; /* Tinggi gambar disesuaikan otomatis untuk menjaga rasio aspek */
+    border-radius: 8px; /* Sudut bulat pada gambar jika diperlukan */
+    display: block; /* Menghilangkan jarak di bawah gambar */
+}
+.image-box {
+    margin-right: 0; /* Menghapus margin kanan pada layar kecil */
+    max-width: 100%; /* Lebar penuh pada layar kecil */
+}
+
+/* Box Paket Wisata di sebelah kanan gambar */
+.paket-wisata-box {
+    flex: 1; /* Memungkinkan box paket wisata menggunakan ruang yang tersedia */
+    max-width: 700px; /* Maksimal lebar box paket wisata */
+    width: 400%; /* Lebar box paket wisata mengikuti lebar kontainer parent */
+    height: 320px; /* Menetapkan tinggi tetap untuk box paket wisata */
+    padding: 20px; /* Mengurangi padding untuk menghindari isi box menjadi terlalu padat */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Jarak antara elemen di dalam box paket wisata */
+    margin: 0; /* Menghilangkan margin jika diperlukan */
+    margin-left: 15%;
+    margin-top: 3rem;
+}
+
+.content-box {
+    display: flex;
+}
+
+/* Ikon Notifikasi */
+.notification-icon-1 {
+    font-size: 30px;
+    color: var(--main-color); /* Warna contoh untuk ikon */
+    align-self: center; /* Centering ikon secara horizontal */
+}
+
+/* Konten Paket Wisata */
+.paket-content h4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.paket-content p {
+    font-size: 15px;
+}
+
+.booking-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.booking-button i {
+    margin-right: 5px;
+}
+
+.booking-button:hover {
+    background-color: #0f7ea0;
+}
+
+.booking-button a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.harga-terms-box {
+    background-color: #f9f9f9; /* Warna latar belakang untuk box */
+    padding: 10px; /* Ruang di dalam box */
+    border: 2px solid #ddd; /* Garis tepi dengan warna abu-abu */
+    border-radius: 10px; /* Membuat sudut box menjadi melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan pada box */
+    margin-top: 420px; /* Jarak dari elemen di atasnya */
+    margin-left: 0; /* Menggeser box lebih ke kiri */
+    max-width: 100%; /* Agar box tidak melampaui batas kontainer */
+    width: 600px; /* Lebar tetap untuk box paket wisata, bisa disesuaikan */
+    padding: 50px;
+}
+
+
+.harga-terms-box h4 {
+    font-size: 2rem; /* Ukuran font untuk judul */
+    margin-bottom: 10px; /* Jarak bawah untuk judul */
+    color: #333; /* Warna teks untuk judul */
+}
+
+.harga-terms-box ul {
+    padding-left: 0; /* Menghilangkan padding default */
+    margin-left: 20px; /* Jarak dari tepi kiri */
+}
+
+
+.harga-terms-box ul li {
+    margin-bottom: 8px; /* Jarak bawah antar item */
+    font-size: 1.5rem; /* Ukuran font untuk item list */
+    color: #555; /* Warna teks untuk item list */
+    display: flex;
+    align-items: center;
+}
+
+.harga-terms-box ul li i {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+    color:var(--main-color); /* Warna ikon, bisa disesuaikan */
+    font-size: 2rem; /* Ukuran ikon */
+}
+
+.harga-terms-box ul li span {
+    display: inline-block;
+    flex-grow: 1;
+    text-align: left; /* Menjaga teks tetap di kiri */
+}
+
+
+
+
+.perhatian-box {
+    background-color: #f9f9f9; /* Warna latar belakang untuk box */
+    padding: 20px; /* Ruang di dalam box */
+    border: 2px solid #ddd; /* Garis tepi dengan warna abu-abu */
+    border-radius: 10px; /* Membuat sudut box menjadi melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan pada box */
+    margin-top: 40rem; /* Jarak dari elemen di atasnya */
+    margin-left: -100%; /* Menghilangkan margin kiri agar box berada di kiri */
+    margin-right: 0; /* Menghilangkan margin kanan */
+    max-width: 100%; /* Agar box tidak melampaui batas kontainer */
+    width: 600px; /* Lebar tetap untuk box paket wisata, bisa disesuaikan */
+    margin-bottom: 3rem;
+}
+
+    
+    .perhatian-box h4 {
+        font-size: 1.5em; /* Ukuran font untuk judul */
+        margin-bottom: 10px; /* Jarak bawah judul */
+    }
+    
+    .perhatian-box p {
+        margin-bottom: 15px; /* Jarak bawah paragraf */
+        line-height: 1.6; /* Tinggi baris untuk paragraf */
+        font-size: 1.4rem;
+    }
+    
+
+    .container-1 {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .about-us {
+        background-color: #f9f9f9;
+        padding: 50px 15px;
+        margin-top: 20rem;
+        margin-bottom: 15rem;
+    }
+    
+    .about-us h2 {
+        font-size: 5rem;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .about-us h3{
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        text-align:center;
+    }
+    
+    .about-us p {
+        font-size: 1.5rem;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .about-us ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+    
+    .about-us ul li {
+        font-size: 1.5rem;
+        color: #666;
+        margin-bottom: 10px;
+    }
+      
+/* Mengatur ukuran font untuk label formulir */
+.contact-form .form-label {
+    font-size: 18px; /* Ukuran font untuk label */
+    font-weight: bold; /* Membuat teks label menjadi tebal */
+}
+
+/* Mengatur ukuran font untuk input dan textarea formulir */
+.contact-form .form-control {
+    font-size: 16px; /* Ukuran font untuk input dan textarea */
+    padding: 10px; /* Memberikan padding untuk ruang di dalam input dan textarea */
+}
+
+/* Mengatur ukuran font untuk button */
+.contact-form .btn-primary {
+    font-size: 16px; /* Ukuran font untuk teks di dalam tombol */
+}
+
+    .contact-container {
+        padding: 40px 0;
+        background-color: #f0f8ff;
+    }
+    
+    .contact-form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Atur lebar kotak formulir */
+        max-width: 600px; /* Maksimal lebar kotak formulir */
+        margin: 0 auto; /* Memusatkan formulir secara horizontal */
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%; /* Membuat input dan textarea mengisi lebar kotak formulir */
+        margin-bottom: 1rem; /* Jarak antara elemen formulir */
+    }
+    
+    .text-container {
+        text-align: center; /* Menyusun teks di tengah kontainer secara horizontal */
+        padding: 0 15px; /* Padding horizontal untuk memberikan jarak dari tepi kontainer */
+        box-sizing: border-box; /* Memastikan padding dan border tidak mempengaruhi ukuran elemen */
+    }
+    
+    .text-container h1 {
+        font-size: 24px; /* Menyesuaikan ukuran font judul agar lebih besar */
+        margin-top: 12rem; /* Mengurangi jarak atas */
+        margin-bottom: 1rem; /* Mengurangi jarak bawah */
+        text-align: center; /* Memastikan teks berada di tengah */
+    }
+    
+    .text-container p {
+        font-size: 16px; /* Ukuran font untuk paragraf */
+        line-height: 1.5; /* Tinggi baris untuk keterbacaan */
+        margin-top: 3rem; /* Jarak atas paragraf */
+        text-align: center; /* Memastikan teks berada di tengah */
+    }
+    
+    
+    .mnu-btn {
+        display: flex;
+        justify-content: center; /* Menyusun tombol ke tengah secara horizontal */
+        align-items: center; /* Menyusun tombol ke tengah secara vertikal (opsional) */
+        width: 100%; /* Pastikan container mengisi seluruh lebar elemen parent */
+        height: 50px; /* Atur tinggi container sesuai kebutuhan */
+    }
+    
+    .mnu-btn i {
+        font-size: 24px; /* Ukuran font untuk ikon */
+        color: var(--main-color); /* Warna ikon sesuai dengan variabel warna utama */
+        cursor: pointer; /* Menunjukkan bahwa ikon dapat diklik */
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    .pastel-text {
+        color: #121b24;
+    }
+    
+    .form-label {
+        font-weight: bold;
+    }
+    
+    .form-control {
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-primary {
+        background-color: #1f6591; 
+        border-color: #1f6591;
+        color: white;
+        padding: 10px 20px; /* Menyesuaikan ukuran tombol dengan padding */
+        font-size: 16px;
+        cursor: pointer; /* Menyesuaikan ukuran font tombol */
+    }
+    
+    .btn-primary:hover {
+        background-color: #0e65ac; 
+        border-color: #0e65ac;
+    }
+    
+    .mb-4 {
+        margin-bottom: 1.5rem; 
+    }
+    
+.footer {
+    background-color: #333; /* Latar belakang footer gelap */
+    color: #fff; /* Teks footer putih */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px; /* Lebar maksimum footer */
+    margin: 0 auto; /* Pusatkan footer konten */
+    padding: 0 20px;
+}
+
+.footer-logo h5 {
+    font-size: 24px; /* Ukuran font logo footer */
+}
+
+.footer-links ul {
+    list-style: none; /* Menghapus bullet point */
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff; /* Teks link putih */
+    text-decoration: none; /* Menghapus garis bawah pada link */
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+
+
+@media (max-width: 1024px) {
+    .swiper {
+        height: 600px; /* Kurangi tinggi pada layar sedang */
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                    url("../img/gambar2.jpg") no-repeat center center/cover;
+    }
+    .swiper.myavanza{
+        background-position: center center;
+        background-size: cover;
+        height: 80vh; /* Tinggi lebih kecil di tablet */
+    }
+    
+    .swiper.myavanza .swiper-slide {
+        padding: 50px; /* Mengurangi padding untuk layar sedang */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 {
+        max-width: 70%; /* Menambah lebar konten agar lebih menonjol pada layar sedang */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 h4 {
+        font-size: 2.5rem; /* Mengurangi ukuran font untuk judul */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 p {
+        font-size: 1.5rem; /* Mengurangi ukuran font untuk paragraf */
+    }
+    .top-container {
+        flex-direction: column; /* Mengubah tata letak menjadi kolom */
+        align-items: center; /* Menyelaraskan elemen ke tengah */
+    }
+
+    .info-box {
+        max-width: 100%; /* Memastikan info-box menggunakan seluruh lebar pada layar kecil */
+        width: 100%; /* Mengatur lebar box menjadi 100% */
+    }
+
+    .image1-box {
+        max-width: 100%; /* Memastikan gambar menggunakan seluruh lebar */
+    }
+    .notification-icon {
+        font-size: 20px; /* Mengurangi ukuran font untuk ikon notifikasi */
+    }
+
+    .info-box h3, .info-box h4, .info-box p {
+        font-size: 14px; /* Mengurangi ukuran font di dalam info-box */
+    }
+
+    .whatsapp-button {
+        padding: 8px 16px; /* Mengurangi padding untuk tombol */
+        font-size: 14px; /* Mengurangi ukuran font tombol */
+    }
+    .swiper.myavanza .swiper-slide .col-1 {
+        max-width: 70%; /* Lebar konten diperluas */
+    }
+
+    .swiper.myavanza .swiper-slide {
+        padding: 50px; /* Mengurangi padding */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 h4 {
+        font-size: 2.5rem; /* Mengurangi ukuran font judul */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 p {
+        font-size: 1.8rem; /* Mengurangi ukuran font paragraf */
+    }
+}
+
+@media (max-width: 768px) {
+    .top-header {
+        padding: 0 0.5rem; /* Mengurangi padding untuk layar kecil */
+    }
+
+    .top-header .inside-box {
+        padding: 0.5rem 0; /* Mengurangi padding dalam top-header */
+        clip-path: none; /* Menonaktifkan clip-path jika tidak diperlukan di layar kecil */
+    }
+
+    .header {
+        padding: 0.5rem 0; /* Mengurangi padding header */
+        top: 2rem; /* Menyesuaikan posisi jika diperlukan */
+        
+    }
+    
+    .navbar.active .navLink {
+        display: flex;
+        background: white;
+        margin-top: 1rem; /* Jarak dari elemen di atasnya */
+        padding: 0.5rem;
+        max-width: none; /* Menghilangkan batasan lebar maksimum */
+        width: 100%; /* Memastikan navLink memenuhi lebar layar */
+        margin-left: auto;
+        margin-right: auto;
+        position: relative; /* Pastikan elemen ini berada di posisi relatif */
+    }
+
+    .navbar.active .menu-button {
+        color: var(--main-color);
+        margin-top: -2rem; /* Memberi jarak atas antara tombol dan latar belakang menu */
+        margin-left: 1rem; /* Jarak kiri dari latar belakang menu */
+        position: absolute; /* Pastikan tombol menu berada di posisi absolut */
+        top: 0; /* Tempatkan tombol menu di atas */
+        left: -15rem; /* Tempatkan tombol menu di kiri */
+        z-index: 301; /* Pastikan tombol menu berada di atas latar belakang menu */
+    }
+
+    .navLink {
+        transition: background 0.3s ease;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Menyembunyikan menu pada awalnya */
+    }
+
+    .navbar ul li {
+        width: 100%;
+    }
+
+    .navbar ul li a {
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .navbar ul li ul.drop-down {
+        position: static;
+        width: 100%;
+        display: none; /* Menyembunyikan dropdown pada awalnya */
+    }
+
+    .navbar ul li:hover ul.drop-down {
+        display: block;
+    }
+
+    .menu-button {
+        display: block;
+        margin-top: -4rem; /* Menambahkan jarak atas pada tombol menu */
+        margin-left: -22rem; /* Menambahkan jarak kiri pada tombol menu */
+        z-index: 301; /* Pastikan tombol menu berada di atas latar belakang menu */
+    }
+
+    .menu-button.active ~ .navbar ul {
+        display: flex;
+    }
+    .navbar {
+        flex-direction: column; /* Mengatur navbar agar tersusun vertikal pada layar kecil */
+        align-items: flex-start; /* Menyelaraskan elemen ke kiri pada layar kecil */
+    }
+
+    .navLink {
+        flex-direction: column; /* Mengubah navigasi menjadi vertikal pada layar kecil */
+        gap: 10px;
+        width: 100%;
+        background: white;
+    }
+
+    .navLink a {
+        padding: 10px;
+        text-align: left; /* Teks rata kiri pada layar kecil */
+        width: 100%;
+        display: block; /* Membuat link memenuhi lebar penuh */
+    }
+
+    .navLink .drop-down {
+        position: static; /* Menghilangkan posisi absolut agar dropdown tampil di bawah link */
+        width: 100%;
+    }
+
+    .navLink li:hover .drop-down {
+        display: block;
+        background: white;
+    }
+
+    .navLink .drop-down li {
+        padding: 10px;
+    }
+    .swiper {
+        height: 500px; /* Kurangi tinggi pada layar kecil */
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+                    url("../img/gambar2.jpg") no-repeat center center/cover;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 50px;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1,
+    .swiper .swiper-wrapper .swiper-slide .col-2 {
+        width: 100%;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 h4 {
+        font-size: 2rem;
+        margin-top: 8rem;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 h1 {
+        font-size: 3rem;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 .button button {
+        padding: 1rem 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .swiper .swiper-button-next,
+    .swiper .swiper-button-prev {
+        font-size: 2rem;
+    }
+
+    .swiper .swiper-button-next:after,
+    .swiper .swiper-button-prev:after {
+        font-size: 1.5rem;
+    }
+
+    .swiper .myavanza {
+        background-position: center center;
+        background-size: cover;
+        height: 70vh; /* Tinggi lebih kecil di ponsel */
+    }
+    .swiper.myavanza .swiper-slide .col-1 {
+        max-width: 90%; /* Lebar konten hampir penuh */
+    }
+
+    .swiper.myavanza .swiper-slide {
+        flex-direction: column; /* Susun konten secara vertikal */
+        align-items: flex-start; /* Mengatur teks ke kiri */
+        padding: 30px; /* Lebih sedikit padding */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 h4 {
+        font-size: 2rem; /* Ukuran font untuk judul lebih kecil */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 p {
+        font-size: 1.6rem; /* Ukuran font paragraf lebih kecil */
+    }
+
+    .card {
+        width: 100%; /* Card akan mengambil seluruh lebar layar pada perangkat kecil */
+        padding: 15px;
+    }
+    
+    .card h3 {
+        font-size: 18px; /* Ukuran font lebih kecil pada layar kecil */
+    }
+
+    .card p {
+        font-size: 16px;
+    }
+
+    .card ul li {
+        font-size: 13px; /* Ukuran font lebih kecil pada layar kecil */
+    }
+
+    .order-btn {
+        font-size: 14px;
+        padding: 12px 0; /* Sedikit menambah padding untuk kenyamanan pada layar kecil */
+    }
+
+
+    
+    main {
+        padding: 15px; /* Mengurangi padding untuk tampilan yang lebih baik pada layar kecil */
+    }
+
+    h1 {
+        font-size: 28px; /* Mengurangi ukuran font heading pada layar kecil */
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .intro {
+        padding: 30px 15px;
+    }
+
+    .intro-image {
+        width: 120px; /* Mengurangi ukuran gambar pada layar kecil */
+        left: 10px; /* Mengatur posisi gambar lebih ke kiri */
+        top: 20px; /* Mengatur gambar ke atas */
+        transform: none; /* Menghapus transformasi untuk penyesuaian */
+        position: static; /* Membuat gambar inline dengan konten */
+        margin-right: 15px; /* Mengatur margin kanan gambar */
+    }
+
+    .intro-content {
+        max-width: 100%; /* Konten memenuhi lebar penuh pada layar kecil */
+        margin-left: 0; /* Menghilangkan margin kiri */
+    }
+
+    .intro h1 {
+        font-size: 2em; /* Mengurangi ukuran font pada layar kecil */
+    }
+
+    .intro p {
+        font-size: 1em; /* Mengurangi ukuran font pada layar kecil */
+    }
+
+
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .col-3, .col-4 {
+        flex: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .col-4 {
+        padding-left: 0;
+    }
+
+    .col-4 h2 {
+        font-size: 20px;
+    }
+
+    .col-4 p {
+        font-size: 14px;
+    }
+
+    .selengkapnya-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .rental-pricing h2 {
+        font-size: 24px;
+    }
+
+    .rental-pricing p {
+        font-size: 14px;
+    }
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .col-3, .col-4 {
+        flex: 1;
+        padding-left: 0; /* Hilangkan padding kiri pada layar kecil */
+        text-align: center;
+    }
+    
+    .car-img {
+        margin-bottom: 20px;
+    }
+
+    .rental-pricing h2 {
+        font-size: 24px; /* Ukuran font yang lebih kecil pada layar kecil */
+    }
+
+    .rental-pricing p {
+        font-size: 14px; /* Ukuran font yang lebih kecil pada layar kecil */
+    }
+
+    .selengkapnya-btn {
+        width: 100%; /* Tombol memenuhi lebar penuh pada layar kecil */
+        padding: 12px;
+        font-size: 18px;
+    }
+    .car-gallery {
+        padding: 30px 15px;
+    }
+
+    .car-gallery h2 {
+        font-size: 1.5em; /* Mengurangi ukuran font pada layar kecil */
+        margin-bottom: 20px;
+    }
+
+    .swiper-container {
+        height: 300px; /* Mengurangi tinggi galeri pada layar kecil */
+    }
+
+    .slide-image {
+        width: 120px; /* Mengurangi ukuran gambar pada layar kecil */
+        left: 10px; /* Mengatur posisi gambar lebih ke kiri */
+        bottom: 10px; /* Mengatur posisi gambar lebih ke bawah */
+    }
+
+    .swiper-slide img {
+        max-width: 80%; /* Mengurangi lebar maksimum gambar pada layar kecil */
+    }
+    .swiper.myavanza .swiper-slide {
+        flex-direction: column; /* Mengubah tata letak menjadi kolom pada layar kecil */
+        padding: 30px; /* Mengurangi padding lebih lanjut */
+        text-align: center; /* Menyelaraskan teks ke tengah */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 {
+        max-width: 100%; /* Memungkinkan konten menggunakan seluruh lebar */
+        margin: 0 auto; /* Tengah-tengah konten */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 h4 {
+        font-size: 2rem; /* Mengurangi ukuran font lebih lanjut */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 p {
+        font-size: 1.2rem; /* Mengurangi ukuran font untuk paragraf */
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Mengurangi ukuran font */
+    }
+
+    h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem; /* Mengurangi margin bawah */
+    }
+    .info-box {
+        padding: 15px; /* Mengurangi padding pada layar lebih kecil */
+    }
+
+    .info-box h4 {
+        font-size: 1.5rem; /* Mengurangi ukuran font untuk judul */
+    }
+
+    .info-box p {
+        font-size: 1rem; /* Mengurangi ukuran font untuk paragraf */
+    }
+    .notification-icon {
+        font-size: 18px; /* Mengurangi ukuran font untuk ikon notifikasi */
+    }
+
+    .info-box h3, .info-box h4, .info-box p {
+        font-size: 13px; /* Mengurangi ukuran font di dalam info-box */
+    }
+
+    .whatsapp-button {
+        padding: 6px 12px; /* Mengurangi padding untuk tombol */
+        font-size: 13px; /* Mengurangi ukuran font tombol */
+    }
+
+    .terms-box {
+        padding: 15px;
+        max-width: 100%; /* Memastikan kotak tidak melebihi lebar layar */
+    }
+
+    .terms-box h3 {
+        font-size: 18px; /* Mengurangi ukuran font judul pada perangkat lebih kecil */
+    }
+
+    .terms-box ul li {
+        font-size: 14px; /* Mengurangi ukuran font teks pada perangkat lebih kecil */
+    }
+
+    .info-container {
+        flex-direction: column; /* Mengubah arah fleksibel menjadi kolom pada layar kecil */
+        gap: 3rem; /* Mengurangi jarak antar kotak */
+        margin-left: 4rem; /* Menghapus margin kiri spesifik */
+        margin-right: auto; /* Menghapus margin kanan spesifik */
+    }
+    .cancellation-container,
+    .warning-container {
+        padding: 1rem; /* Mengurangi padding pada perangkat lebih kecil */
+        max-width: 90%; /* Memastikan kotak tidak melebihi lebar layar pada perangkat kecil */
+    }
+
+    .cancellation-container h2,
+    .warning-container h2 {
+        font-size: 2rem; /* Mengurangi ukuran font judul pada perangkat kecil */
+    }
+
+    .cancellation-container p,
+    .warning-container p {
+        font-size: 14px; /* Mengurangi ukuran font teks pada perangkat kecil */
+    }
+    .wrapper {
+        flex-direction: column; /* Menyusun elemen secara vertikal pada layar kecil */
+        gap: 2rem; /* Mengurangi jarak antar elemen */
+    }
+
+    
+
+    .paket-wisata-box {
+        margin-top: 2rem; /* Mengatur margin top untuk perangkat kecil */
+        max-width: 100%; /* Lebar penuh pada layar kecil */
+        height: auto; /* Tinggi menyesuaikan konten */
+        margin-right:auto; /* Atau atur menjadi 0 */
+        margin-left: 1rem; 
+       }
+
+    .harga-terms-box, .perhatian-box {
+        margin-top: 1rem; /* Mengurangi jarak atas */
+        padding: 20px; /* Mengurangi padding */
+        margin-bottom: 3rem;
+
+    }
+    .perhatian-box {
+        width: 100%; /* Lebar penuh pada layar kecil */
+        padding: 15px; /* Mengurangi padding pada layar kecil */
+        margin-top: 10px; /* Mengurangi jarak dari elemen di atasnya */
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+
+    .perhatian-box h4 {
+        font-size: 1.3rem; /* Ukuran font lebih kecil untuk judul */
+        margin-bottom: 8px; /* Jarak bawah judul */
+    }
+
+    .perhatian-box p {
+        margin-bottom: 10px; /* Jarak bawah paragraf lebih kecil */
+        font-size: 1.2rem; /* Ukuran font lebih kecil untuk paragraf */
+        line-height: 1.4; /* Menyesuaikan tinggi baris untuk layar kecil */
+    }
+    .image-box {
+        padding: 8px; /* Mengurangi padding pada layar kecil */
+        max-width: 90%; /* Lebar penuh pada layar kecil dengan sedikit ruang di sekitar */
+        margin-right: auto; /* Menghapus margin kanan pada layar kecil */
+        margin-left: auto; /* Pusatkan gambar pada layar kecil */
+    }
+    .custom-slider {
+        height: 500px; /* Kurangi tinggi slider pada layar kecil */
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+                    url("./img/ranu.jpg") no-repeat center center/cover;
+    }
+
+}
+.custom-swiper {
+    width: 100%;
+    height: 100%; /* Sesuaikan tinggi swiper dengan container */
+}
+
+/* Aturan responsif untuk slide content */
+.slide-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box; /* Memastikan padding dan border tidak mempengaruhi tinggi */
+}
+
+/* Aturan responsif untuk judul dan paragraf dalam slide */
+.slide-content h4 {
+    margin: 0;
+    font-size: 24px;
+    margin-top: 14rem;
+}
+
+
+/* Media Queries untuk perangkat dengan lebar layar maksimal 480px */
+@media (max-width: 480px) {
+    .navbar ul li a {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .navLink {
+        gap: 5px; /* Mengurangi jarak antar link pada layar lebih kecil */
+    }
+    .swiper {
+        height: 400px; /* Kurangi tinggi pada layar sangat kecil */
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+                    url("../img/gambar2.jpg") no-repeat center center/cover;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 h4 {
+        font-size: 2rem;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 h1 {
+        font-size: 3rem;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 .button button {
+        padding: 1rem 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-2 img {
+        max-width: 90%;
+    }
+
+    .swiper .swiper-button-next,
+    .swiper .swiper-button-prev {
+        font-size: 2rem;
+    }
+    .swiper .swiper-wrapper .swiper-slide {
+        padding: 20px;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 h4 {
+        font-size: 1.5rem;
+        margin-top: 5rem;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 h1 {
+        font-size: 2.5rem;
+    }
+
+    .swiper .swiper-wrapper .swiper-slide .col-1 .button button {
+        padding: 0.8rem 1.2rem;
+        font-size: 1.2rem;
+    }
+
+    .swiper .swiper-button-next,
+    .swiper .swiper-button-prev {
+        font-size: 1.5rem;
+    }
+
+    .swiper .swiper-button-next:after,
+    .swiper .swiper-button-prev:after {
+        font-size: 1.2rem;
+    }
+    .swiper .myavanza {
+        background-position: center center;
+        background-size: cover;
+        height: 60vh; /* Tinggi lebih kecil di ponsel kecil */
+    }
+    .swiper.myavanza {
+        height: auto; /* Tinggi menyesuaikan konten */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 {
+        max-width: 100%; /* Lebar konten penuh */
+        padding: 0; /* Hilangkan padding di dalam kolom */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 h4 {
+        font-size: 1.8rem; /* Ukuran font lebih kecil */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 p {
+        font-size: 1.4rem; /* Ukuran font paragraf lebih kecil */
+    }
+    .market {
+        padding: 15px;
+    }
+
+    .rental-pricing h2 {
+        font-size: 22px;
+    }
+
+    .rental-pricing p {
+        font-size: 14px;
+    }
+    .card {
+        padding: 10px;
+    }
+
+    .card h3 {
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .card ul li {
+        font-size: 12px;
+    }
+
+    .order-btn {
+        font-size: 14px;
+    }
+
+    .header .logo h5 {
+        font-size: 20px; /* Mengurangi ukuran font logo pada layar lebih kecil */
+    }
+
+    
+
+    h1 {
+        font-size: 24px; /* Mengurangi ukuran font heading pada layar lebih kecil */
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 16px;
+    }
+
+    .card ul li {
+        font-size: 12px;
+    }
+
+    .order-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+    .intro {
+        padding: 20px 10px; /* Mengurangi padding untuk layar yang lebih kecil */
+    }
+
+    .intro-image {
+        width: 100px; /* Ukuran gambar lebih kecil untuk layar kecil */
+        margin-right: 10px; /* Menyesuaikan margin kanan gambar */
+    }
+
+    .intro h1 {
+        font-size: 1.8em; /* Mengurangi ukuran font heading untuk layar kecil */
+        margin-bottom: 15px;
+    }
+
+    .intro p {
+        font-size: 0.9em; /* Mengurangi ukuran font paragraf */
+    }
+    .car-gallery {
+        padding: 20px 10px; /* Mengurangi padding untuk layar yang lebih kecil */
+    }
+
+    .car-gallery h2 {
+        font-size: 1.2em; /* Mengurangi ukuran font pada layar yang sangat kecil */
+        margin-bottom: 15px;
+    }
+
+    .swiper-container {
+        height: 250px; /* Mengurangi tinggi galeri lebih lanjut pada layar kecil */
+    }
+
+    .slide-image {
+        width: 100px; /* Mengurangi ukuran gambar lebih jauh pada layar kecil */
+    }
+
+    .swiper-slide img {
+        max-width: 70%; /* Mengurangi lebar maksimum gambar lebih jauh pada layar kecil */
+    }
+
+    
+    .swiper.myavanza .swiper-slide {
+        padding: 20px; /* Mengurangi padding untuk layar yang sangat kecil */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 h4 {
+        font-size: 1.5rem; /* Ukuran font lebih kecil */
+    }
+
+    .swiper.myavanza .swiper-slide .col-1 p {
+        font-size: 1rem; /* Mengurangi ukuran font untuk paragraf */
+    }
+
+    h1 {
+        font-size: 2rem; /* Mengurangi ukuran font */
+    }
+
+    h4 {
+        font-size: 1rem; /* Ukuran font lebih kecil */
+        margin-bottom: 0.5rem; /* Mengurangi margin bawah */
+    }
+    .top-container {
+        margin-top: 2rem; /* Mengurangi margin atas */
+    }
+
+    .info-box {
+        padding: 10px; /* Mengurangi padding pada layar sangat kecil */
+    }
+
+    .info-box h4 {
+        font-size: 1.2rem; /* Ukuran font untuk judul lebih kecil */
+    }
+
+    .info-box p {
+        font-size: 0.9rem; /* Ukuran font untuk paragraf lebih kecil */
+    }
+    .notification-icon {
+        font-size: 16px; /* Mengurangi ukuran font untuk ikon notifikasi */
+    }
+
+    .info-box h3, .info-box h4, .info-box p {
+        font-size: 12px; /* Mengurangi ukuran font di dalam info-box */
+    }
+
+    .whatsapp-button {
+        padding: 5px 10px; /* Mengurangi padding untuk tombol */
+        font-size: 12px; /* Mengurangi ukuran font tombol */
+    }
+    .top-header {
+        padding: 0 0.25rem; /* Mengurangi padding lebih lanjut */
+    }
+
+    .top-header .inside-box {
+        padding: 0.25rem 0; /* Mengurangi padding lebih lanjut dalam top-header */
+    }
+
+    .header {
+        padding: 0.25rem 0; /* Mengurangi padding lebih lanjut pada header */
+        top: 5rem; /* Menyesuaikan posisi jika diperlukan */
+    }
+    .cancellation-container,
+    .warning-container {
+        padding: 0.5rem; /* Mengurangi padding lebih lanjut pada perangkat sangat kecil */
+    }
+
+    .cancellation-container h2,
+    .warning-container h2 {
+        font-size: 1.5rem; /* Mengurangi ukuran font judul pada perangkat sangat kecil */
+    }
+
+    .cancellation-container p,
+    .warning-container p {
+        font-size: 12px; /* Mengurangi ukuran font teks pada perangkat sangat kecil */
+    }
+    .terms-box {
+        padding: 10px;
+    }
+
+    .terms-box h3 {
+        font-size: 16px; /* Mengurangi ukuran font judul pada perangkat sangat kecil */
+    }
+
+    .terms-box ul li {
+        font-size: 13px; /* Mengurangi ukuran font teks pada perangkat sangat kecil */
+    }
+
+    .info-container {
+        gap: 1rem; /* Mengurangi jarak antar kotak lebih lanjut pada layar sangat kecil */
+    }
+    .wrapper {
+        gap: 1rem; /* Mengurangi jarak antar elemen pada layar kecil */
+    }
+
+    .paket-wisata-box, .harga-terms-box, .perhatian-box {
+        padding: 15px; /* Mengurangi padding untuk layar sangat kecil */
+    }
+
+    .paket-content h4 {
+        font-size: 1.5rem; /* Mengurangi ukuran font pada layar kecil */
+    }
+
+    .booking-button {
+        padding: 10px 10px; /* Mengurangi padding pada tombol */
+        font-size: 14px; /* Mengurangi ukuran font pada tombol */
+    }
+
+    .harga-terms-box h4 {
+        font-size: 1.5rem; /* Mengurangi ukuran font pada judul */
+    }
+
+    .harga-terms-box ul li, .perhatian-box p {
+        font-size: 1.2rem; /* Mengurangi ukuran font pada list dan paragraf */
+    }
+    .perhatian-box {
+        padding: 10px; /* Padding lebih kecil untuk layar sangat kecil */
+    }
+
+    .perhatian-box h4 {
+        font-size: 1.2rem; /* Ukuran font lebih kecil untuk judul */
+    }
+
+    .perhatian-box p {
+        font-size: 1rem; /* Ukuran font lebih kecil untuk paragraf */
+        line-height: 1.3; /* Tinggi baris lebih rapat */
+    }
+    image-box {
+        padding: 5px; /* Padding lebih kecil untuk layar sangat kecil */
+        max-width: 100%; /* Lebar penuh pada layar sangat kecil */
+    }
+
+    .image-box img {
+        border-radius: 5px; /* Mengurangi radius sudut untuk layar kecil */
+    }
+}
+
+
+
+
