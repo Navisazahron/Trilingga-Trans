@@ -1604,7 +1604,7 @@ span {
     .navbar.active .menu-button {
         color: var(--main-color);
         margin-top: -2rem; /* Memberi jarak atas antara tombol dan latar belakang menu */
-        margin-left: -3rem; /* Jarak kiri dari latar belakang menu */
+        margin-left: -5rem; /* Jarak kiri dari latar belakang menu */
         position: absolute; /* Pastikan tombol menu berada di posisi absolut */
         top: 0; /* Tempatkan tombol menu di atas */
         left: -5rem; /* Tempatkan tombol menu di kiri */
