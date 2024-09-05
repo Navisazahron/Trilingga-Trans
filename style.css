@@ -1586,9 +1586,8 @@ span {
 
     .header {
         padding: 0.5rem 0; /* Mengurangi padding header */
-        top:0.1rem; /* Menyesuaikan posisi jika diperlukan */
-        
-    }
+        margin-top:-5rem; /* Menghilangkan jarak atas */
+        }
     
     .navbar.active .navLink {
         display: flex;
@@ -1605,7 +1604,7 @@ span {
     .navbar.active .menu-button {
         color: var(--main-color);
         margin-top: -2rem; /* Memberi jarak atas antara tombol dan latar belakang menu */
-        margin-left: 1rem; /* Jarak kiri dari latar belakang menu */
+        margin-left: -15rem; /* Jarak kiri dari latar belakang menu */
         position: absolute; /* Pastikan tombol menu berada di posisi absolut */
         top: 0; /* Tempatkan tombol menu di atas */
         left: -5rem; /* Tempatkan tombol menu di kiri */
@@ -1649,7 +1648,7 @@ span {
     .menu-button {
         display: block;
         margin-top: -4rem; /* Menambahkan jarak atas pada tombol menu */
-        margin-left: -22rem; /* Menambahkan jarak kiri pada tombol menu */
+        margin-left: -15rem; /* Menambahkan jarak kiri pada tombol menu */
         z-index: 301; /* Pastikan tombol menu berada di atas latar belakang menu */
     }
 
