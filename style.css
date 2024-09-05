@@ -1581,13 +1581,7 @@ span {
 
 @media (max-width: 768px) {
     .top-header {
-        padding: 0 0.5rem; /* Mengurangi padding untuk layar kecil */
         display: none;
-    }
-
-    .top-header .inside-box {
-        padding: 0.5rem 0; /* Mengurangi padding dalam top-header */
-        clip-path: none; /* Menonaktifkan clip-path jika tidak diperlukan di layar kecil */
     }
 
     .header {
